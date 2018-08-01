@@ -42,6 +42,9 @@
 
         <!--common-->
         <common.version>1.0.0</common.version>
+
+        <!--app-->
+        <article.platform.version>1.0.0</article.platform.version>
     </properties>
 
     <build>
@@ -121,6 +124,13 @@
                 <groupId>com.kangyonggan</groupId>
                 <artifactId>common</artifactId>
                 <version>${common.version}</version>
+            </dependency>
+
+            <!--app-->
+            <dependency>
+                <groupId>com.kangyonggan</groupId>
+                <artifactId>ap-model</artifactId>
+                <version>${article.platform.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
