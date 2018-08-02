@@ -25,7 +25,7 @@ public interface PhrasalService {
      * @return
      */
     @GetMapping("phrasal")
-    PageInfo<Phrasal> list(@RequestParam("query") Map<String, Object> query);
+    PageInfo<Phrasal> phrasals(@RequestParam("query") Map<String, Object> query);
 
     /**
      * 获取成语
@@ -34,7 +34,7 @@ public interface PhrasalService {
      * @return
      */
     @GetMapping("phrasal/{id}")
-    Phrasal get(@PathVariable("id") Long id);
+    Phrasal phrasal(@PathVariable("id") Long id);
 
     /**
      * 成语接龙
@@ -43,5 +43,5 @@ public interface PhrasalService {
      * @return
      */
     @GetMapping("phrasal/below")
-    List<Phrasal> below(@RequestParam("name") String name);
+    List<Phrasal> phrasalsBelow(@RequestParam("name") String name);
 }

@@ -24,9 +24,9 @@ public class NovelController extends BaseController {
      * @return
      */
     @GetMapping
-    public Response list() {
+    public Response novels() {
         Response response = Response.getSuccessResponse();
-        PageInfo<Novel> pageInfo = novelService.list(getQuery());
+        PageInfo<Novel> pageInfo = novelService.novels(getQuery());
 
         response.put("pageInfo", pageInfo);
         return response;
@@ -39,9 +39,9 @@ public class NovelController extends BaseController {
      * @return
      */
     @GetMapping(value = "{code:[\\d]+}")
-    public Response detail(@PathVariable("code") Integer code) {
+    public Response novel(@PathVariable("code") Integer code) {
         Response response = Response.getSuccessResponse();
-        Novel novel = novelService.get(code);
+        Novel novel = novelService.novel(code);
 
         response.put("novel", novel);
         return response;
@@ -54,8 +54,8 @@ public class NovelController extends BaseController {
      * @return
      */
     @PutMapping(value = "{code:[\\d]+}/pull")
-    public Response pull(@PathVariable("code") Integer code) {
-        novelService.pull(code);
+    public Response novelPull(@PathVariable("code") Integer code) {
+        novelService.novelPull(code);
         return Response.getSuccessResponse();
     }
 }

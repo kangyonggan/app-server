@@ -29,9 +29,9 @@ public class PhrasalController extends BaseController {
      * @return
      */
     @GetMapping
-    public Response list() {
+    public Response phrasals() {
         Response response = Response.getSuccessResponse();
-        PageInfo<Phrasal> pageInfo = phrasalService.list(getQuery());
+        PageInfo<Phrasal> pageInfo = phrasalService.phrasals(getQuery());
 
         response.put("pageInfo", pageInfo);
         return response;
@@ -44,10 +44,10 @@ public class PhrasalController extends BaseController {
      * @return
      */
     @GetMapping(value = "{id:[\\d]+}")
-    public Response detail(@PathVariable("id") Long id) {
+    public Response phrasal(@PathVariable("id") Long id) {
         Response response = Response.getSuccessResponse();
-        Phrasal phrasal = phrasalService.get(id);
-        List<Phrasal> phrasalList = phrasalService.below(phrasal.getName().substring(phrasal.getName().length() - 1));
+        Phrasal phrasal = phrasalService.phrasal(id);
+        List<Phrasal> phrasalList = phrasalService.phrasalsBelow(phrasal.getName().substring(phrasal.getName().length() - 1));
 
         response.put("phrasal", phrasal);
         response.put("phrasalList", phrasalList);

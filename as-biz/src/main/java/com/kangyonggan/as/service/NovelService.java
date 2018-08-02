@@ -3,11 +3,13 @@ package com.kangyonggan.as.service;
 import com.github.pagehelper.PageInfo;
 import com.kangyonggan.as.constants.App;
 import com.kangyonggan.np.model.Novel;
+import com.kangyonggan.np.model.Section;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,7 +26,7 @@ public interface NovelService {
      * @return
      */
     @GetMapping("novel")
-    PageInfo<Novel> list(@RequestParam("query") Map<String, Object> query);
+    PageInfo<Novel> novels(@RequestParam("query") Map<String, Object> query);
 
     /**
      * 获取小说
@@ -33,7 +35,7 @@ public interface NovelService {
      * @return
      */
     @GetMapping("novel/{code}")
-    Novel get(@PathVariable("code") Integer code);
+    Novel novel(@PathVariable("code") Integer code);
 
     /**
      * 拉取小说最新章节
@@ -41,5 +43,41 @@ public interface NovelService {
      * @param code
      */
     @GetMapping("novel/{code}/pull")
-    void pull(@PathVariable("code") Integer code);
+    void novelPull(@PathVariable("code") Integer code);
+
+    /**
+     * 章节列表
+     *
+     * @param query
+     * @return
+     */
+    @GetMapping("section")
+    List<Section> sections(@RequestParam("query") Map<String, Object> query);
+
+    /**
+     * 章节详情
+     *
+     * @param code
+     * @return
+     */
+    @GetMapping("section/{code}")
+    Section section(@PathVariable("code") Integer code);
+
+    /**
+     * 上一章
+     *
+     * @param code
+     * @return
+     */
+    @GetMapping("section/{code}/prev")
+    Section sectionPrev(@PathVariable("code") Integer code);
+
+    /**
+     * 下一章
+     *
+     * @param code
+     * @return
+     */
+    @GetMapping("section/{code}/next")
+    Section sectionNext(@PathVariable("code") Integer code);
 }

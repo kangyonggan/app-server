@@ -30,11 +30,11 @@ public class ArticleController extends BaseController {
      * @return
      */
     @GetMapping
-    public Response list() {
+    public Response articles() {
         Response response = Response.getSuccessResponse();
         Query query = getQuery();
         query.put("applyStatus", ApplyStatus.COMPLETE.getCode());
-        PageInfo<Article> pageInfo = articleService.list(query);
+        PageInfo<Article> pageInfo = articleService.articles(query);
 
         response.put("pageInfo", pageInfo);
         return response;
@@ -49,12 +49,12 @@ public class ArticleController extends BaseController {
     @GetMapping(value = "{id:[\\d]+}")
     public Response detail(@PathVariable("id") Long id) {
         Response response = Response.getSuccessResponse();
-        Article article = articleService.get(id);
+        Article article = articleService.article(id);
         if (article != null) {
             article.setContent(MarkdownUtil.markdownToHtml(article.getContent()));
-            Article prevArticle = articleService.prev(id);
+            Article prevArticle = articleService.articlePrev(id);
             response.put("prevArticle", prevArticle);
-            Article nextArticle = articleService.next(id);
+            Article nextArticle = articleService.articleNext(id);
             response.put("nextArticle", nextArticle);
         }
 

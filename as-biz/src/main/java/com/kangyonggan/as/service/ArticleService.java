@@ -24,7 +24,7 @@ public interface ArticleService {
      * @return
      */
     @GetMapping("article")
-    PageInfo<Article> list(@RequestParam("query") Map<String, Object> query);
+    PageInfo<Article> articles(@RequestParam("query") Map<String, Object> query);
 
     /**
      * 获取文章
@@ -33,7 +33,7 @@ public interface ArticleService {
      * @return
      */
     @GetMapping("article/{id}")
-    Article get(@PathVariable("id") Long id);
+    Article article(@PathVariable("id") Long id);
 
     /**
      * 获取下一篇文章
@@ -42,7 +42,7 @@ public interface ArticleService {
      * @return
      */
     @GetMapping("article/{id}/next")
-    Article next(@PathVariable("id") Long id);
+    Article articleNext(@PathVariable("id") Long id);
 
     /**
      * 获取上一篇文章
@@ -51,5 +51,5 @@ public interface ArticleService {
      * @return
      */
     @GetMapping("article/{id}/prev")
-    Article prev(@PathVariable("id") Long id);
+    Article articlePrev(@PathVariable("id") Long id);
 }
