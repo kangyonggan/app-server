@@ -8,6 +8,7 @@ import com.kangyonggan.np.model.Section;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -43,7 +44,7 @@ public interface NovelService {
      *
      * @param code
      */
-    @GetMapping("novel/{code}/pull")
+    @PutMapping("novel/{code}/pull")
     void novelPull(@PathVariable("code") Integer code);
 
     /**
