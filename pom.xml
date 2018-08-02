@@ -50,6 +50,9 @@
 
         <!--log4j2-->
         <log4j2.api.version>2.5</log4j2.api.version>
+
+        <!--other-->
+        <zxing.version>3.3.0</zxing.version>
     </properties>
 
     <build>
@@ -158,6 +161,18 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
                 <version>${log4j2.api.version}</version>
+            </dependency>
+
+            <!--other-->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
