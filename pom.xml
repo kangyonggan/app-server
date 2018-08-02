@@ -45,6 +45,7 @@
 
         <!--app-->
         <article.platform.version>1.0.0</article.platform.version>
+        <novel.platform.version>1.0.0</novel.platform.version>
 
         <!--log4j2-->
         <log4j2.api.version>2.5</log4j2.api.version>
@@ -134,6 +135,11 @@
                 <groupId>com.kangyonggan</groupId>
                 <artifactId>ap-model</artifactId>
                 <version>${article.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kangyonggan</groupId>
+                <artifactId>np-model</artifactId>
+                <version>${novel.platform.version}</version>
             </dependency>
 
             <!--log4j2-->

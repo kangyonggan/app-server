@@ -35,10 +35,16 @@
             <artifactId>log4j-core</artifactId>
         </dependency>
 
+        <!--app-->
         <dependency>
             <groupId>com.kangyonggan</groupId>
             <artifactId>ap-model</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kangyonggan</groupId>
+            <artifactId>np-model</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>

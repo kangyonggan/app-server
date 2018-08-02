@@ -5,6 +5,7 @@ import com.kangyonggan.ap.model.Article;
 import com.kangyonggan.as.constants.App;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
@@ -22,8 +23,8 @@ public interface ArticleService {
      * @param query
      * @return
      */
-    @GetMapping("list")
-    PageInfo<Article> list(@RequestParam Map<String, Object> query);
+    @GetMapping("article")
+    PageInfo<Article> list(@RequestParam("query") Map<String, Object> query);
 
     /**
      * 获取文章
@@ -31,8 +32,8 @@ public interface ArticleService {
      * @param id
      * @return
      */
-    @GetMapping("/")
-    Article get(@RequestParam("id") Long id);
+    @GetMapping("article/{id}")
+    Article get(@PathVariable("id") Long id);
 
     /**
      * 获取下一篇文章
@@ -40,8 +41,8 @@ public interface ArticleService {
      * @param id
      * @return
      */
-    @GetMapping("next")
-    Article next(@RequestParam("id") Long id);
+    @GetMapping("article/{id}/next")
+    Article next(@PathVariable("id") Long id);
 
     /**
      * 获取上一篇文章
@@ -49,6 +50,6 @@ public interface ArticleService {
      * @param id
      * @return
      */
-    @GetMapping("prev")
-    Article prev(@RequestParam("id") Long id);
+    @GetMapping("article/{id}/prev")
+    Article prev(@PathVariable("id") Long id);
 }
