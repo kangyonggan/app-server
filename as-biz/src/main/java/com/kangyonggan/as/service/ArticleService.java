@@ -1,32 +1,27 @@
 package com.kangyonggan.as.service;
 
 import com.kangyonggan.as.constants.App;
-import com.kangyonggan.common.Params;
 import com.kangyonggan.common.Response;
-import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Map;
 
 /**
  * @author kangyonggan
  * @since 8/1/18
  */
-@Service
-@Log4j2
-public class ArticleService {
-
-    @Autowired
-    private RestTemplate restTemplate;
+@FeignClient(App.ARTICLE_PLATFORM)
+public interface ArticleService {
 
     /**
-     * 搜索文章
+     * 文章列表查询
      *
-     * @param params
+     * @param query
      * @return
      */
-    public Response searchArticles(Params params) {
-        return restTemplate.getForObject("http://" + App.ARTICLE.getCode() + "/article", Response.class, params.getQuery());
-    }
+    @GetMapping("/")
+    Response list(@RequestParam Map<String, Object> query);
 
 }

@@ -1,8 +1,6 @@
 package com.kangyonggan.as.controller;
 
-import com.kangyonggan.ap.constants.ApplyStatus;
 import com.kangyonggan.as.service.ArticleService;
-import com.kangyonggan.common.Params;
 import com.kangyonggan.common.Response;
 import com.kangyonggan.common.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +26,7 @@ public class ArticleController extends BaseController {
      */
     @GetMapping
     public Response list() {
-        Params params = getRequestParams();
-        params.getQuery().put("applyStatus", ApplyStatus.COMPLETE.getCode());
-
-        return articleService.searchArticles(params);
+        return articleService.list(getQuery());
     }
 
 }
