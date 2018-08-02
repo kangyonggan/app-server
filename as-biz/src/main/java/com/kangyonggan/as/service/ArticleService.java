@@ -1,7 +1,8 @@
 package com.kangyonggan.as.service;
 
+import com.github.pagehelper.PageInfo;
+import com.kangyonggan.ap.model.Article;
 import com.kangyonggan.as.constants.App;
-import com.kangyonggan.common.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,12 +17,38 @@ import java.util.Map;
 public interface ArticleService {
 
     /**
-     * 文章列表查询
+     * 获取文章列表
      *
      * @param query
      * @return
      */
-    @GetMapping("/")
-    Response list(@RequestParam Map<String, Object> query);
+    @GetMapping("list")
+    PageInfo<Article> list(@RequestParam Map<String, Object> query);
 
+    /**
+     * 获取文章
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/")
+    Article get(@RequestParam("id") Long id);
+
+    /**
+     * 获取下一篇文章
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("next")
+    Article next(@RequestParam("id") Long id);
+
+    /**
+     * 获取上一篇文章
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("prev")
+    Article prev(@RequestParam("id") Long id);
 }
