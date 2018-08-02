@@ -2,6 +2,7 @@ package com.kangyonggan.as.service;
 
 import com.github.pagehelper.PageInfo;
 import com.kangyonggan.as.constants.App;
+import com.kangyonggan.np.model.Category;
 import com.kangyonggan.np.model.Novel;
 import com.kangyonggan.np.model.Section;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -80,4 +81,13 @@ public interface NovelService {
      */
     @GetMapping("section/{code}/next")
     Section sectionNext(@PathVariable("code") Integer code);
+
+    /**
+     * 栏目列表
+     *
+     * @param type
+     * @return
+     */
+    @GetMapping("category")
+    List<Category> categories(@RequestParam("type") String type);
 }
