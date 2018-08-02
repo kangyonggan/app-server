@@ -7,7 +7,6 @@ import com.kangyonggan.app.util.MarkdownUtil;
 import com.kangyonggan.as.service.ArticleService;
 import com.kangyonggan.common.Query;
 import com.kangyonggan.common.Response;
-import com.kangyonggan.common.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,7 +50,7 @@ public class ArticleController extends BaseController {
     public Response detail(@PathVariable("id") Long id) {
         Response response = Response.getSuccessResponse();
         Article article = articleService.get(id);
-        if (article.getId() != null) {
+        if (article != null) {
             article.setContent(MarkdownUtil.markdownToHtml(article.getContent()));
             Article prevArticle = articleService.prev(id);
             response.put("prevArticle", prevArticle);
