@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 6/7/18
  */
 @RestController
-@RequestMapping("web/article")
+@RequestMapping("article")
 public class ArticleController extends BaseController {
 
     @Autowired
