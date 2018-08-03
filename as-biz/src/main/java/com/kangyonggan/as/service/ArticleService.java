@@ -2,7 +2,7 @@ package com.kangyonggan.as.service;
 
 import com.github.pagehelper.PageInfo;
 import com.kangyonggan.ap.model.Article;
-import com.kangyonggan.as.constants.App;
+import com.kangyonggan.common.App;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

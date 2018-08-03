@@ -1,7 +1,7 @@
 package com.kangyonggan.as.service;
 
 import com.github.pagehelper.PageInfo;
-import com.kangyonggan.as.constants.App;
+import com.kangyonggan.common.App;
 import com.kangyonggan.np.model.Category;
 import com.kangyonggan.np.model.Novel;
 import com.kangyonggan.np.model.Section;
